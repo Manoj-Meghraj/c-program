@@ -4,7 +4,7 @@ int main()
 {
 	//not used for leap years
 	int days,y,m,d,rd; // rd means remaining days
-	printf("Enter days");
+	printf("Enter days ");
 	scanf("%d",&days);
 	y=days/365;
 	rd=days%365;

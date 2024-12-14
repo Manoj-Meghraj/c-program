@@ -10,9 +10,9 @@ int main()
 	{
 		printf("A is greatest");
 	
-}
-else
-{ 
-printf("B is greater");
-}
+        }
+          else
+            { 
+               printf("B is greater");
+             }
 }

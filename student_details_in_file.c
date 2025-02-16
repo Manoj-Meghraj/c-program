@@ -19,7 +19,7 @@ int main()
 	int i;
 	
 	FILE *fptr;
-	fptr=fopen("std.txt", "r");
+	fptr=fopen("std.txt", "w+");
 	
 	if(fptr==NULL)
 	{
@@ -31,12 +31,13 @@ int main()
 		printf("student %d: \n", i+1);
 		printf("Roll Number: ");
 		scanf("%d", &st[i].roll);
+		fflush(stdin);
 		
 		printf("Name: ");
-		scanf("%s", st[i].name);
+		fgets(st[i].name, sizeof(st[i].name), stdin);
 		
 		printf("Address: ");
-		scanf("%s", st[i].address);
+		fgets(st[i].address, sizeof(st[i].address), stdin);
 		
 		printf("Age: ");
 		scanf("%d", &st[i].age);
@@ -53,7 +54,8 @@ int main()
 		printf("\n");
 	}
 	
-//	fwrite(&st, sizeof(struct student), n, fptr);	
+//	fwrite(&st, sizeof(struct student), n, fptr);
+	
 	float sum, average[n];
 	for(i=0; i<n; i++)
 	{
@@ -66,9 +68,11 @@ int main()
 	{
 		fprintf(fptr,"Roll Number: %d", st[i].roll);
 		fprintf(fptr, "Name: %s", st[i].name);
-		fprintf(fptr, "Address: %d", st[i].address);
+		fprintf(fptr, "Address: %s", st[i].address);
 		fprintf(fptr, "Age: %d", st[i].age);
 		fprintf(fptr, "Average marks: %f", average[i]);
+		
+		printf("\n");
 	}
 	
 	fclose(fptr);
